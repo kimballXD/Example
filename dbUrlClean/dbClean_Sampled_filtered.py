@@ -33,8 +33,8 @@ if __name__ == '__main__':
                 time.sleep(300)
                 continue
             hidsubSampleList=[]
-            hidsubSampleList.append(hidResult[0:sampleSize/2]) # half of the sample comes from updated time order
-            hidsubSampleList.append(getSampleByCol(hidResult[sampleSize/2:],'website',sampleSize/2,proportional=True)) #the other half come from sampling
+            hidsubSampleList.append(hidResult[0:sampleSize/2]) # half of the sample came from updated time order
+            hidsubSampleList.append(getSampleByCol(hidResult[sampleSize/2:],'website',sampleSize/2,proportional=True)) #the other half came from sampling
             hidSample=hidsubSampleList[0].append(hidsubSampleList[1])
             hidList=[str(x) for x in hidSample['hid'].tolist()]
             cur.execute('SELECT hid, website, URL, resFailCount FROM houseTestAll WHERE hid in ({})'.format(','.join(hidList)))
